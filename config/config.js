@@ -1,0 +1,6 @@
+module.exports = {
+    PRODUCTS_PER_PAGE: 10,
+    CATEGORIES_PER_PAGE: 4,
+    BRANDS_PER_PAGE: 3,
+    NEW_BOOK: 86400
+}
