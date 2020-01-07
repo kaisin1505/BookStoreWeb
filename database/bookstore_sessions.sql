@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `bookstore` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `bookstore`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: bookstore
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.32-MariaDB
+-- Server version	5.5.5-10.1.31-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,8 +28,8 @@ CREATE TABLE `sessions` (
   `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `expires` int(11) unsigned NOT NULL,
   `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-  PRIMARY KEY (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`session_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +38,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('Cb5yID4maFOrtJlqiEMc60v9BKNDT7yB',1529666172,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"user\":{\"id\":18,\"Username\":\"longk\",\"Password\":\"6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b\",\"Fullname\":\"Thai Ba Long\",\"CMND\":\"null\",\"DOB\":\"0000-00-00 00:00:00\",\"Sex\":\"Unknown\",\"Address\":\"null\",\"Phone\":\"0987654559\",\"Email\":\"longk@gmail.com\",\"Permission\":0,\"Actived\":1}}');
+INSERT INTO `sessions` VALUES ('O-ICJl_B1ZmEffvVBDbIPv--9vbRP1d_',1530031031,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"Total\":0,\"cartLayout\":[],\"limit\":9,\"user\":{\"id\":2,\"Username\":\"huantd\",\"Password\":\"e7042ac7d09c7bc41c8cfa5749e41858f6980643bc0db1a83cc793d3e24d3f77\",\"Fullname\":\"Trần Đình Huân\",\"CMND\":\"212481095\",\"DOB\":\"1997-10-10T17:00:00.000Z\",\"Sex\":\"Female\",\"Address\":\"Bình Thạnh\",\"Phone\":\"0976998997\",\"Email\":\"huantd@gmail.com\",\"Permission\":1,\"Actived\":1},\"cart\":[]}'),('X4x9dNOeaZzDXwFt-c2u2j7Kc0Pjkk7J',1530031089,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"Total\":0,\"cartLayout\":[],\"user\":{\"id\":2,\"Username\":\"huantd\",\"Password\":\"e7042ac7d09c7bc41c8cfa5749e41858f6980643bc0db1a83cc793d3e24d3f77\",\"Fullname\":\"Trần Đình Huân\",\"CMND\":\"212481095\",\"DOB\":\"1997-10-10T17:00:00.000Z\",\"Sex\":\"Female\",\"Address\":\"Bình Thạnh\",\"Phone\":\"0976998997\",\"Email\":\"huantd@gmail.com\",\"Permission\":1,\"Actived\":1}}');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-21 20:16:00
+-- Dump completed on 2018-06-25 23:41:49
