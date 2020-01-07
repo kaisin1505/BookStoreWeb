@@ -24,3 +24,26 @@ exports.load = sql => {
         });
     });
 }
+
+exports.save = sql => {
+    return new Promise((resolve, reject) => {
+        var cn = mysql.createConnection({
+            host: 'localhost',
+            port: 3306,
+            user: 'root',
+            database: 'bookstore'
+        });
+
+        cn.connect();
+
+        cn.query(sql, function(error, value) {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(value);
+            }
+
+            cn.end();
+        });
+    });
+}
