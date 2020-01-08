@@ -1,4 +1,3 @@
-
 var express = require('express');
 var exphbs = require('express-handlebars');
 var express_handlebars_sections = require('express-handlebars-sections');
@@ -93,5 +92,28 @@ app.listen(port, () => {
     console.log('Site  running on port:', port);
 });
 
+app.use(
+	session({
+		key: 'session_cookie_name',
+		secret: 'session_cookie_secret',
+		store: sessionStore,
+		resave: false,
+		saveUninitialized: false
+	})
+);
 
+app.use(handleLayout);
 
+app.use('/admin/users', userController);
+app.use('/admin/dashboard', dashboardController);
+app.use('/', accountController);
+app.use('/admin/brands', brandController);
+app.use('/admin/category', categoryController);
+app.use('/admin/products', productController);
+app.use('/admin/orders', orderController);
+app.use('/cart', cartController);
+
+app.use(handle404);
+app.listen(3000, () => {
+	console.log('Site  running on port 3000');
+});
