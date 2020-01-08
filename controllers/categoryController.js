@@ -139,7 +139,29 @@ router.post('/add', (req, res) => {
 //     });
 // });
 
+router.get('/edit', (req, res) => {
+    categoryRepo.single(req.query.id).then(c => {
+        var vm = {
+            Category: c
+        };
+        res.render('admin/category/edit', vm);
+    });
+});
 
+router.post('/edit', (req, res) => {
+    categoryRepo.update(req.body).then(value => {
+        res.redirect('/admin/category');
+    });
+});
+router.get('/delete', (req, res) => {
+    var id = req.query.id;
+    categoryRepo.single(id).then(c => {
+        vm = {
+            category: c
+        }
+        res.render('admin/category/delete', vm);
+    });
+});
 
 router.post('/delete', (req, res) => {
     var id = req.body.id;

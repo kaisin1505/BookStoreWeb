@@ -116,7 +116,23 @@ router.get('/',  (req, res) => {
 
 
 
+router.get('/add', (req, res) => {
+    var vm = {
+        alert: false
+    };
+    res.render('admin/orders/add', vm);
+});
 
+router.post('/add', (req, res) => {
+    brandRepo.add(req.body).then(value => {
+        var vm = {
+            alert: true
+        };
+        res.redirect('/admin/orders');
+    }).catch(err => {
+        res.end('fail');
+    });
+});
 
 // router.get('/delete', (req, res) => {
 //     var vm = {
